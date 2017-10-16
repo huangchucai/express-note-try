@@ -12,12 +12,10 @@ router.get('/', function(req, res, next) {
       user: req.session.user
     }
   } else{
-    console.log(11)
     data = {
       isLogin: false
     }
   }
-  console.log(data)
   res.render('index', data);
 });
 

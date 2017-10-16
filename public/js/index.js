@@ -405,11 +405,9 @@ Note.prototype = {
 
     //contenteditable没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
     $noteCt.on('focus', function () {
-      console.log($noteCt.html())
       if ($noteCt.html() == 'input here') $noteCt.html('');
       $noteCt.data('before', $noteCt.html());
     }).on('blur paste', function () {
-      console.log($noteCt.html())
       if ($noteCt.data('before') != $noteCt.html()) {
         $noteCt.data('before', $noteCt.html());
         self.setLayout();
