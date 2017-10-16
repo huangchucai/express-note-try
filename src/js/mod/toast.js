@@ -16,7 +16,7 @@ toast.prototype = {
     showToast(){
         var self= this;
         this.$toast.fadeIn(300,()=>{
-            setTimeout(()=>{
+            setTimeout( () => {
                 self.$toast.fadeOut(300,()=>{
                     self.$toast.remove();
                 })
@@ -26,7 +26,7 @@ toast.prototype = {
 };
 function Toast(msg,time){
     return new toast(msg,time);
-} 
+}
 window.toast = Toast;
 // module.exports是一个对象，不是直接赋值函数，让函数成为它的一个方法
 module.exports.Toast = Toast;

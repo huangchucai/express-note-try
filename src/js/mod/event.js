@@ -11,12 +11,12 @@ var EventCenter = (function(){
       });
     }
 
-    function fire(evt, args){
+    function fire(evt, ...args){
       if(!events[evt]){
         return;
       }
       for(var i=0; i<events[evt].length; i++){
-        events[evt][i].handler(args);
+        events[evt][i].handler(...args);
       }
       
     }

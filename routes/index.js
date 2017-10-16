@@ -6,12 +6,13 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   var data;
-  if(req.session.user){
+  if(req.session && req.session.user){
     data = {
       isLogin: true,
       user: req.session.user
     }
-  }else{
+  } else{
+    console.log(11)
     data = {
       isLogin: false
     }
@@ -19,5 +20,6 @@ router.get('/', function(req, res, next) {
   console.log(data)
   res.render('index', data);
 });
+
 
 module.exports = router;

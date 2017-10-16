@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var api = require('./routes/api');
+// var users = require('./routes/users');
 
 var app = express();
 
@@ -24,14 +25,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 测试静态路径的用处
-app.use('/stylesheets/style.html',(req,res,next) => {
-    res.send('这是一个测试的文件')
-})
+// app.use('/stylesheets/style.html',(req,res,next) => {
+//     res.send('这是一个测试的文件')
+// })
 
 //测试中间件
-app.use('/student',function(req,res,next){
-    res.send('hello huangchucai')
+// app.use('/student/',function(req,res,next){
+//     res.send('hello huangchucai')
+// })
+app.get('/student/',function(req,res,next){
+  res.send('hello xxxxxx')
 })
+app.use('/api', api)
+
 
 
 app.use('/', index);
