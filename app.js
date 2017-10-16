@@ -4,9 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var passport = require('passport');
 
 var index = require('./routes/index');
 var api = require('./routes/api');
+var auth = require('./routes/auth');
 // var users = require('./routes/users');
 
 var app = express();
@@ -23,6 +26,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // 静态路径的设置
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // 测试静态路径的用处
 // app.use('/stylesheets/style.html',(req,res,next) => {
@@ -37,7 +43,7 @@ app.get('/student/',function(req,res,next){
   res.send('hello xxxxxx')
 })
 app.use('/api', api)
-
+app.use('/auth', auth)
 
 
 app.use('/', index);
