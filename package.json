@@ -20,6 +20,9 @@
     "morgan": "~1.8.1",
     "passport": "^0.4.0",
     "passport-github": "^1.1.0",
+    "passport-qq": "^0.1.0",
+    "passport-weibo": "^0.1.2",
+    "passport-weixin": "^0.2.0",
     "serve-favicon": "~2.4.2",
     "sqlite3": "^3.1.13",
     "style-loader": "^0.17.0"

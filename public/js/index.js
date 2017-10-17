@@ -451,6 +451,7 @@ Note.prototype = {
   },
 
   add: function (msg) {
+    debugger
     var self = this;
     $.post('/api/notes/add', {note: msg})
       .done(function (ret) {
